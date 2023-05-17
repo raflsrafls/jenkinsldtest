@@ -8,7 +8,7 @@ pipeline {
 
                 powershell 'ls python-greetings'
 
-                powershell 'pip3 install -r python-greetings\\requirements.txt'
+                powershell 'pip install -r python-greetings\\requirements.txt'
                 
                 echo 'Hello World'
             }
