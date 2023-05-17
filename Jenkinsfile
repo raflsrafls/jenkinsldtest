@@ -31,8 +31,6 @@ pipeline {
 
                 powershell 'npm install'
 
-                powershell 'npm run --prefix course-js-api-framework greetings greetings_dev || true'
-
                 echo 'Testing on DEV has started..'
             }
         }
