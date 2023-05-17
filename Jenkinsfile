@@ -16,7 +16,7 @@ pipeline {
         stage('deploy-to-dev') {
             steps {
 
-                powershell 'pm2 start python-greetings/app.py --name greetings-app-deploy-to-dev -p 7001'
+                powershell 'pm2 start python-greetings/app.py --name greetings-app-dev -p 7001'
 
                 powershell 'pm2 delete all'
 
@@ -37,7 +37,7 @@ pipeline {
         }
         stage('deploy-to-staging') {
             steps {
-                powershell 'pm2 start python-greetings/app.py --name greetings-app-deploy-to-staging -p 7002'
+                powershell 'pm2 start python-greetings/app.py --name greetings-app-staging -p 7002'
 
                 powershell 'pm2 delete all'
 
@@ -46,12 +46,6 @@ pipeline {
         }
         stage('tests-on-staging') {
             steps {
-
-                powershell 'npm install'
-
-                powershell 'npm run greetings --name greetings-app-deploy-to-staging -p 7002'
-                
-                powershell 'pm2 delete all'
 
                 echo 'Testing on STG has started..'
             }
@@ -69,12 +63,6 @@ pipeline {
         stage('tests-on-preprod') {
             steps {
 
-                powershell 'npm install'
-
-                powershell 'npm run greetings --name greetings-app-preprod'
-                
-                powershell 'pm2 delete all'
-
                 echo 'Testing on PRD has started..'
             }
         }
@@ -90,12 +78,6 @@ pipeline {
         }
         stage('tests-on-prod') {
             steps {
-
-                powershell 'npm install'
-
-                powershell 'npm run greetings --name greetings-app-prod'
-                
-                powershell 'pm2 delete all'
 
                 echo 'Testing on PROD has started..'
             }
