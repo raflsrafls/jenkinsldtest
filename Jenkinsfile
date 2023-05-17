@@ -15,7 +15,6 @@ pipeline {
         }
         stage('deploy-to-dev') {
             steps {
-                powershell 'git clone https://github.com/mtararujs/python-greetings'
 
                 powershell 'pm2 delete greetings-app-dev & set EXIT /B 0'
 
