@@ -46,6 +46,12 @@ pipeline {
         stage('tests-on-staging') {
             steps {
 
+                powershell 'copy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\package.json C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\ '
+
+                powershell 'npm install'
+
+                echo 'Testing on DEV has started..'
+
                 echo 'Testing on STG has started..'
             }
         }
@@ -61,6 +67,13 @@ pipeline {
         }
         stage('tests-on-preprod') {
             steps {
+
+                powershell 'copy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\package.json C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\ '
+
+                powershell 'npm install'
+
+                echo 'Testing on DEV has started..'
+
                 echo 'Testing on PRD has started..'
             }
         }
@@ -76,6 +89,12 @@ pipeline {
         }
         stage('tests-on-prod') {
             steps {
+
+                powershell 'copy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\package.json C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\ '
+
+                powershell 'npm install'
+
+                echo 'Testing on DEV has started..'
 
                 echo 'Testing on PROD has started..'
             }
