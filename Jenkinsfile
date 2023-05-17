@@ -16,7 +16,7 @@ pipeline {
         stage('deploy-to-dev') {
             steps {
 
-                powershell 'pm2 delete greetings-app-dev & set "errorlevel=0"'
+                powershell 'pm2 delete greetings-app-dev "&" set "errorlevel=0"'
 
                 powershell 'pm2 start app.py --name greetings-app-dev -- --port 7001'
 
@@ -38,7 +38,7 @@ pipeline {
             steps {
                 powershell 'git clone https://github.com/mtararujs/python-greetings'
 
-                powershell 'pm2 delete greetings-app-staging & set "errorlevel=0"'
+                powershell 'pm2 delete greetings-app-staging "&" set "errorlevel=0"'
 
                 powershell 'pm2 start app.py --name greetings-app-staging -- --port 7002'
 
@@ -60,7 +60,7 @@ pipeline {
             steps {
                 powershell 'git clone https://github.com/mtararujs/python-greetings'
 
-                powershell 'pm2 delete greetings-app-preprod & set "errorlevel=0"'
+                powershell 'pm2 delete greetings-app-preprod "&" set "errorlevel=0"'
 
                 powershell 'pm2 start app.py --name greetings-app-preprod -- --port 7003'
 
@@ -82,7 +82,7 @@ pipeline {
             steps {
                 powershell 'git clone https://github.com/mtararujs/python-greetings'
 
-                powershell 'pm2 delete greetings-app-prod & set "errorlevel=0"'
+                powershell 'pm2 delete greetings-app-prod "&" set "errorlevel=0"'
 
                 powershell 'pm2 start app.py --name greetings-app-prod -- --port 7004'
 
