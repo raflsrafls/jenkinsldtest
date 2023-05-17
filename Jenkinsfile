@@ -27,7 +27,7 @@ pipeline {
             steps {
                 powershell 'git clone https://github.com/raflsrafls/api22222222'
 
-                powershell 'C:\ProgramData\Jenkins\.jenkins\workspace\pipelineldtest\api22222222\package.json C:\ProgramData\Jenkins\.jenkins\workspace\ '
+                powershell 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\api22222222\\package.json C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\ '
 
                 powershell 'npm install'
 
