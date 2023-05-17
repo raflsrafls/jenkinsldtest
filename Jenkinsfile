@@ -31,7 +31,7 @@ pipeline {
 
                 powershell 'npm install'
 
-                powershell 'npm run greetings greetings_dev'
+                powershell 'npm run --prefix api22222222 greetings greetings_dev'
 
                 echo 'Testing on DEV has started..'
             }
