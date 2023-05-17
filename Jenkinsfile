@@ -18,7 +18,7 @@ pipeline {
 
                 powershell 'pm2 start python-greetings/app.py --name greetings-app-deploy-to-dev -p 7001'
 
-                powershell 'pm2 delete greetings-app-dev "&" set "errorlevel=0"'
+                powershell 'pm2 delete greetings-app-deploy-to-dev "&" set "errorlevel=0"'
 
                 echo 'Deployment to DEV has started..'
             }
@@ -35,7 +35,7 @@ pipeline {
         }
         stage('deploy-to-staging') {
             steps {
-                powershell 'pm2 start app.py --name greetings-app-staging -p 7002'
+                powershell 'pm2 start python-greetings/app.py app.py --name greetings-app-staging -p 7002'
 
                 powershell 'pm2 delete greetings-app-staging "&" set "errorlevel=0"'
 
@@ -55,7 +55,7 @@ pipeline {
         stage('deploy-to-preprod') {
             steps {
 
-                powershell 'pm2 start app.py --name greetings-app-preprod -p 7003'
+                powershell 'pm2 start python-greetings/app.py app.py --name greetings-app-preprod -p 7003'
 
                 powershell 'pm2 delete greetings-app-preprod "&" set "errorlevel=0"'
 
@@ -75,7 +75,7 @@ pipeline {
         stage('deploy-to-prod') {
             steps {
 
-                powershell 'pm2 start app.py --name greetings-app-prod -p 7004'
+                powershell 'pm2 start python-greetings/app.py app.py --name greetings-app-prod -p 7004'
 
                 powershell 'pm2 delete greetings-app-prod "&" set "errorlevel=0"'
 
