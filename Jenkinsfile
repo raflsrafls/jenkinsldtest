@@ -41,7 +41,6 @@ pipeline {
         }
         stage('tests-on-staging') {
             steps {
-                powershell 'git clone https://github.com/mtararujs/course-js-api-framework'
 
                 echo 'Testing on STG has started..'
             }
@@ -58,8 +57,6 @@ pipeline {
         }
         stage('tests-on-preprod') {
             steps {
-                powershell 'git clone https://github.com/mtararujs/course-js-api-framework'           
-
                 echo 'Testing on PRD has started..'
             }
         }
@@ -75,8 +72,6 @@ pipeline {
         }
         stage('tests-on-prod') {
             steps {
-
-                powershell 'git clone https://github.com/mtararujs/course-js-api-framework'
 
                 echo 'Testing on PROD has started..'
             }
