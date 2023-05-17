@@ -1,10 +1,19 @@
 pipeline {
     agent any
-
+    
     stages {
         stage('Build') {
             steps {
-                echo 'Building of node application is starting..'
+                // Clone the repository
+                powershell 'git clone https://github.com/mtararujs/python-greetings'
+
+                // Check for the existence of required files if necessary
+                powershell 'ls python-greetings\\required_files'
+
+                // Install the necessary libraries
+                powershell 'pip install -r python-greetings\\requirements.txt'
+                
+                echo 'Hello World'
             }
         }
         stage('Deploy to DEV') {
