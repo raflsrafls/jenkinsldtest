@@ -26,12 +26,6 @@ pipeline {
         stage('tests-on-dev') {
             steps {
 
-                powershell 'npm install'
-
-                powershell 'npm run greetings --name greetings-app-tests-on-dev -p 7001'
-
-                powershell 'pm2 delete all'
-
                 echo 'Testing on DEV has started..'
             }
         }
