@@ -25,7 +25,6 @@ pipeline {
         }
         stage('tests-on-dev') {
             steps {
-                powershell 'git clone https://github.com/mtararujs/course-js-api-framework'
 
                 powershell 'npm install'
 
@@ -36,7 +35,6 @@ pipeline {
         }
         stage('deploy-to-staging') {
             steps {
-                powershell 'git clone https://github.com/mtararujs/python-greetings'
 
                 powershell 'pm2 delete greetings-app-staging "&" set "errorlevel=0"'
 
@@ -47,7 +45,6 @@ pipeline {
         }
         stage('tests-on-staging') {
             steps {
-                powershell 'git clone https://github.com/mtararujs/course-js-api-framework'
 
                 powershell 'npm install'
 
@@ -58,7 +55,6 @@ pipeline {
         }
         stage('deploy-to-preprod') {
             steps {
-                powershell 'git clone https://github.com/mtararujs/python-greetings'
 
                 powershell 'pm2 delete greetings-app-preprod "&" set "errorlevel=0"'
 
@@ -69,7 +65,6 @@ pipeline {
         }
         stage('tests-on-preprod') {
             steps {
-                powershell 'git clone https://github.com/mtararujs/course-js-api-framework'
 
                 powershell 'npm install'
 
@@ -80,7 +75,6 @@ pipeline {
         }
         stage('deploy-to-prod') {
             steps {
-                powershell 'git clone https://github.com/mtararujs/python-greetings'
 
                 powershell 'pm2 delete greetings-app-prod "&" set "errorlevel=0"'
 
@@ -91,13 +85,12 @@ pipeline {
         }
         stage('tests-on-prod') {
             steps {
-                powershell 'git clone https://github.com/mtararujs/course-js-api-framework'
 
                 powershell 'npm install'
 
                 powershell 'npm run greetings greetings_prod'
                 
-                echo 'Testin on PROD has started..'
+                echo 'Testing on PROD has started..'
             }
         }
     }
