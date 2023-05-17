@@ -25,8 +25,11 @@ pipeline {
         }
         stage('tests-on-dev') {
             steps {
+                powershell 'git clone https://github.com/mtararujs/course-js-api-framework'
 
                 powershell 'npm install'
+
+                powershell 'npm run greetings greetings_dev'
 
                 echo 'Testing on DEV has started..'
             }
