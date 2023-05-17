@@ -25,13 +25,13 @@ pipeline {
         }
         stage('tests-on-dev') {
             steps {
-                powershell 'git clone https://github.com/raflsrafls/api22222222'
+                powershell 'git clone https://github.com/mtararujs/course-js-api-framework.git'
 
-                powershell 'copy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\api22222222\\package.json C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\ '
+
 
                 powershell 'npm install'
 
-                powershell 'npm run --prefix api22222222 greetings greetings_dev'
+                powershell 'npm run greetings greetings_dev'
 
                 echo 'Testing on DEV has started..'
             }
