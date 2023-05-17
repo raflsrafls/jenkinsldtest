@@ -17,7 +17,7 @@ pipeline {
             steps {
                 powershell 'git clone https://github.com/mtararujs/python-greetings'
 
-                powershell 'pm2 delete greetings-app-dev & set "errorlevel=0"'
+                powershell 'pm2 delete greetings-app-dev & set EXIT /B 0'
 
                 powershell 'pm2 start app.py --name greetings-app-dev -- --port 7001'
 
