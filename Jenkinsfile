@@ -27,8 +27,6 @@ pipeline {
             steps {
                 powershell 'git clone https://github.com/mtararujs/course-js-api-framework'
 
-                powershell 'npm run greetings greetings_dev'
-
                 echo 'Testing on DEV has started..'
             }
         }
@@ -45,8 +43,6 @@ pipeline {
             steps {
                 powershell 'git clone https://github.com/mtararujs/course-js-api-framework'
 
-                powershell 'npm run greetings greetings_staging'
-
                 echo 'Testing on STG has started..'
             }
         }
@@ -62,9 +58,7 @@ pipeline {
         }
         stage('tests-on-preprod') {
             steps {
-                powershell 'git clone https://github.com/mtararujs/course-js-api-framework'
-
-                powershell 'npm run greetings greetings_preprod'                
+                powershell 'git clone https://github.com/mtararujs/course-js-api-framework'           
 
                 echo 'Testing on PRD has started..'
             }
@@ -83,8 +77,6 @@ pipeline {
             steps {
 
                 powershell 'git clone https://github.com/mtararujs/course-js-api-framework'
-                
-                powershell 'npm run greetings greetings_prod'
 
                 echo 'Testing on PROD has started..'
             }
