@@ -28,14 +28,14 @@ pipeline {
 
                 powershell 'npm install'
 
-                powershell 'npm run greetings greetings_dev'
+                powershell 'npm run greetings --name greetings-app-deploy-to-dev'
 
                 echo 'Testing on DEV has started..'
             }
         }
         stage('deploy-to-staging') {
             steps {
-                powershell 'pm2 start python-greetings/app.py app.py --name greetings-app-staging -p 7002'
+                powershell 'pm2 start python-greetings/app.py --name greetings-app-staging -p 7002'
 
                 powershell 'pm2 delete all'
 
@@ -47,7 +47,7 @@ pipeline {
 
                 powershell 'npm install'
 
-                powershell 'npm run greetings greetings_staging'
+                powershell 'npm run greetings --name greetings-app-staging'
                 
                 echo 'Testing on STG has started..'
             }
@@ -55,7 +55,7 @@ pipeline {
         stage('deploy-to-preprod') {
             steps {
 
-                powershell 'pm2 start python-greetings/app.py app.py --name greetings-app-preprod -p 7003'
+                powershell 'pm2 start python-greetings/app.py --name greetings-app-preprod -p 7003'
 
                 powershell 'pm2 delete all'
 
@@ -67,7 +67,7 @@ pipeline {
 
                 powershell 'npm install'
 
-                powershell 'npm run greetings greetings_preprod'
+                powershell 'npm run greetings --name greetings-app-preprod'
                 
                 echo 'Testing on PRD has started..'
             }
@@ -75,7 +75,7 @@ pipeline {
         stage('deploy-to-prod') {
             steps {
 
-                powershell 'pm2 start python-greetings/app.py app.py --name greetings-app-prod -p 7004'
+                powershell 'pm2 start python-greetings/app.py --name greetings-app-prod -p 7004'
 
                 powershell 'pm2 delete all'
 
@@ -87,7 +87,7 @@ pipeline {
 
                 powershell 'npm install'
 
-                powershell 'npm run greetings greetings_prod'
+                powershell 'npm run greetings --name greetings-app-prod'
                 
                 echo 'Testing on PROD has started..'
             }
