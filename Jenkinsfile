@@ -28,14 +28,16 @@ pipeline {
 
                 powershell 'npm install'
 
-                powershell 'npm run greetings --name greetings-app-deploy-to-dev'
+                powershell 'npm run greetings --name greetings-app-tests-on-dev -p 7001'
+
+                powershell 'pm2 delete all'
 
                 echo 'Testing on DEV has started..'
             }
         }
         stage('deploy-to-staging') {
             steps {
-                powershell 'pm2 start python-greetings/app.py --name greetings-app-staging -p 7002'
+                powershell 'pm2 start python-greetings/app.py --name greetings-app-deploy-to-staging -p 7002'
 
                 powershell 'pm2 delete all'
 
@@ -47,8 +49,10 @@ pipeline {
 
                 powershell 'npm install'
 
-                powershell 'npm run greetings --name greetings-app-staging'
+                powershell 'npm run greetings --name greetings-app-deploy-to-staging -p 7002'
                 
+                powershell 'pm2 delete all'
+
                 echo 'Testing on STG has started..'
             }
         }
@@ -69,6 +73,8 @@ pipeline {
 
                 powershell 'npm run greetings --name greetings-app-preprod'
                 
+                powershell 'pm2 delete all'
+
                 echo 'Testing on PRD has started..'
             }
         }
@@ -89,6 +95,8 @@ pipeline {
 
                 powershell 'npm run greetings --name greetings-app-prod'
                 
+                powershell 'pm2 delete all'
+
                 echo 'Testing on PROD has started..'
             }
         }
