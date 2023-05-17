@@ -26,6 +26,8 @@ pipeline {
         stage('tests-on-dev') {
             steps {
 
+                powershell 'npm install'
+
                 echo 'Testing on DEV has started..'
             }
         }
@@ -40,6 +42,8 @@ pipeline {
         }
         stage('tests-on-staging') {
             steps {
+
+                powershell 'npm install'
 
                 echo 'Testing on STG has started..'
             }
@@ -57,6 +61,8 @@ pipeline {
         stage('tests-on-preprod') {
             steps {
 
+                powershell 'npm install'
+
                 echo 'Testing on PRD has started..'
             }
         }
@@ -72,6 +78,8 @@ pipeline {
         }
         stage('tests-on-prod') {
             steps {
+
+                powershell 'npm install'
 
                 echo 'Testing on PROD has started..'
             }
