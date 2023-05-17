@@ -27,7 +27,7 @@ pipeline {
             steps {
                 powershell 'git clone https://github.com/mtararujs/course-js-api-framework.git'
 
-
+                powershell 'copy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\package.json C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\ '
 
                 powershell 'npm install'
 
