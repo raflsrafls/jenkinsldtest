@@ -4,13 +4,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                // Clone the repository
                 powershell 'git clone https://github.com/mtararujs/python-greetings'
 
-                // Check for the existence of required files if necessary
-                powershell 'ls python-greetings\\required_files'
+                powershell 'ls python-greetings'
 
-                // Install the necessary libraries
                 powershell 'pip3 install -r python-greetings\\requirements.txt'
                 
                 echo 'Hello World'
