@@ -50,8 +50,6 @@ pipeline {
 
                 powershell 'npm install'
 
-                echo 'Testing on DEV has started..'
-
                 echo 'Testing on STG has started..'
             }
         }
@@ -72,8 +70,6 @@ pipeline {
 
                 powershell 'npm install'
 
-                echo 'Testing on DEV has started..'
-
                 echo 'Testing on PRD has started..'
             }
         }
@@ -93,8 +89,6 @@ pipeline {
                 powershell 'copy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\package.json C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\ '
 
                 powershell 'npm install'
-
-                echo 'Testing on DEV has started..'
 
                 echo 'Testing on PROD has started..'
             }
