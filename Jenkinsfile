@@ -1,48 +1,40 @@
 pipeline {
     agent any
+
     stages {
-        stage('install-pip-deps') {
+        stage('Build') {
             steps {
-                // Clone the repository
-                powershell 'git clone https://github.com/mtararujs/python-greetings'
-
-                // Check for the existence of required files if necessary
-                powershell 'ls python-greetings\\required_files'
-
-                // Install the necessary libraries
-                powershell 'pip install -r python-greetings\\requirements.txt'
-                
-                echo 'Hello World'
+                echo 'Building of node application is starting..'
             }
         }
-      stage('deploy-to-dev') {
+        stage('Deploy to DEV') {
             steps {
-                echo 'Deploying to dev...'
+                echo 'Deployment to DEV has started..'
             }
         }
-      stage('tests-on-dev') {
+        stage('Tests on DEV') {
             steps {
-                echo 'Testing on dev'
+                echo 'Testing on DEV has started..'
             }
         }
-      stage('deploy-to-staging') {
+        stage('Deploy to STG') {
             steps {
-                echo 'Deploying to staging'
+                echo 'Deployment to STG has started..'
             }
         }
-      stage('tests-on-preprod') {
+        stage('Tests on STG') {
             steps {
-                echo 'Testing on prepod'
+                echo 'Testing on STG has started..'
             }
         }
-      stage('deploy-to-prod') {
+        stage('Deploy to PRD') {
             steps {
-                echo 'Deploying to prod'
+                echo 'Deployment to PRD has started..'
             }
         }
-      stage('tests-on-prod') {
+        stage('Tests on PRD') {
             steps {
-                echo 'Testing on prod'
+                echo 'Testing on PRD has started..'
             }
         }
     }
