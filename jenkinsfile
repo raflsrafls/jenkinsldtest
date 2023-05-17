@@ -1,10 +1,60 @@
 pipeline {
     agent any
     stages {
-        stage('Hello'){
+        stage('install-pip-deps'){
+            steps {
+                // Clone the repository
+                powershell 'git clone https://github.com/mtararujs/python-greetings'
+
+                // Check for the existence of required files if necessary
+                powershell 'dir python-greetings\\required_files'
+
+                // Install the necessary libraries
+                powershell 'pip install -r python-greetings\\requirements.txt'
+
+                echo 'Hello World'
+            }
+        }
+        stage('deploy-to-dev'){
             steps {
                 echo 'Hello World'
             }
         }
+        stage('tests-on-dev'){
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('deploy-to-staging'){
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('tests-on-staging'){
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('deploy-to-preprod'){
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('tests-on-preprod'){
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('deploy-to-prod'){
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('tests-on-prod'){
+            steps {
+                echo 'Hello World'
+            }
+        }
+        
     }
 }
