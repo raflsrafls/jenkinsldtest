@@ -11,7 +11,7 @@ pipeline {
                 powershell 'ls python-greetings\\required_files'
 
                 // Install the necessary libraries
-                powershell 'pip install -r python-greetings\\requirements.txt'
+                powershell 'pip3 install -r python-greetings\\requirements.txt'
                 
                 echo 'Hello World'
             }
