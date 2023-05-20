@@ -21,6 +21,7 @@ pipeline {
             steps {
                 echo 'Testing on DEV has started..'
                 powershell 'git clone https://github.com/mtararujs/course-js-api-framework.git'
+                powershell 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
                 powershell 'npm install'
                 //npm run greetings greetings_dev
             }
