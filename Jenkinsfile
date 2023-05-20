@@ -12,11 +12,9 @@ pipeline {
         }
         stage('deploy-to-dev') {
             steps {
-
-                powershell 'pm2 start python-greetings/app.py --name greetings-app-dev -p 7001'
-
-                powershell 'pm2 delete all'
-
+                powershell 'git clone https://github.com/mtararujs/python-greetings'
+                powershell 'pm2 delete greetings-app-dev & set "errorlevel=0"'
+                powershell 'pm2 start app.py --name greetings-app-dev -- -p 7001'
                 echo 'Deployment to DEV has started..'
             }
         }
