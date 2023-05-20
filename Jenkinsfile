@@ -20,7 +20,7 @@ pipeline {
                 echo 'Testing on DEV has started..'
                 bat 'git clone https://github.com/mtararujs/course-js-api-framework.git'
                 bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
-                bat 'npm install'
+                //bat 'npm install'
                 //bat 'npm run greetings greetings_dev'
                 bat 'pm2 delete greetings-app-dev && set "errorlevel=0"'
             }
@@ -35,7 +35,7 @@ pipeline {
             steps {
                 echo 'Testing on STG has started..'
                 bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
-                bat 'npm install'
+                //bat 'npm install'
                 //npm run greetings greetings_staging
                 bat 'pm2 delete greetings-app-staging ; set "errorlevel=0"'
             }
@@ -50,7 +50,7 @@ pipeline {
             steps {
                 echo 'Testing on PRD has started..'
                 bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
-                bat 'npm install'
+                //bat 'npm install'
                 //npm run greetings greetings_preprod
                 bat 'pm2 delete greetings-app-preprod ; set "errorlevel=0"'
             }
@@ -65,7 +65,7 @@ pipeline {
             steps {
                 echo 'Testing on PROD has started..'
                 bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
-                bat 'npm install'
+                //bat 'npm install'
                 //npm run greetings greetings_prod
                 bat 'pm2 delete greetings-app-prod ; set "errorlevel=0"'
             }
