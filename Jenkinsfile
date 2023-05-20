@@ -29,7 +29,7 @@ pipeline {
         stage('deploy-to-staging') {
             steps {
                 echo 'Deployment to STG has started..'
-                powershell 'pm2 start python-greetings/app.py --name greetings-app-staging -p 7002'
+                powershell 'pm2 start python-greetings/app.py --name greetings_staging -p 7002'
                 powershell 'pm2 delete greetings-app-staging ; set "errorlevel=0"'
             }
         }
