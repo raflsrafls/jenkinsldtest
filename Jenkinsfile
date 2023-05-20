@@ -13,7 +13,6 @@ pipeline {
             steps {
                 echo 'Deployment to DEV has started..'
                 bat 'pm2 start python-greetings/app.py --name greetings-app-dev -p 7001'
-                bat 'pm2 delete greetings-app-dev ; set "errorlevel=0"'
             }
         }
         stage('tests-on-dev') {
@@ -23,51 +22,52 @@ pipeline {
                 bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
                 bat 'npm install'
                 //bat 'npm run greetings greetings_dev'
+                bat 'pm2 delete greetings-app-dev && set "errorlevel=0"'
             }
         }
         stage('deploy-to-staging') {
             steps {
                 echo 'Deployment to STG has started..'
-                powershell 'pm2 start python-greetings/app.py --name greetings-app-staging -p 7002'
-                powershell 'pm2 delete greetings-app-staging ; set "errorlevel=0"'
+                bat 'pm2 start python-greetings/app.py --name greetings-app-staging -p 7002'
             }
         }
         stage('tests-on-staging') {
             steps {
                 echo 'Testing on STG has started..'
-                powershell 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
-                powershell 'npm install'
+                bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
+                bat 'npm install'
                 //npm run greetings greetings_staging
+                bat 'pm2 delete greetings-app-staging ; set "errorlevel=0"'
             }
         }
         stage('deploy-to-preprod') {
             steps {
                 echo 'Deployment to PRD has started..'
-                powershell 'pm2 start python-greetings/app.py --name greetings-app-preprod -p 7003'
-                powershell 'pm2 delete greetings-app-preprod ; set "errorlevel=0"'
+                bat 'pm2 start python-greetings/app.py --name greetings-app-preprod -p 7003'
             }
         }
         stage('tests-on-preprod') {
             steps {
                 echo 'Testing on PRD has started..'
-                powershell 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
-                powershell 'npm install'
+                bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
+                bat 'npm install'
                 //npm run greetings greetings_preprod
+                bat 'pm2 delete greetings-app-preprod ; set "errorlevel=0"'
             }
         }
         stage('deploy-to-prod') {
             steps {
                 echo 'Deployment to PROD has started..'
-                powershell 'pm2 start python-greetings/app.py --name greetings-app-prod -p 7004'
-                powershell 'pm2 delete greetings-app-prod ; set "errorlevel=0"'
+                bat 'pm2 start python-greetings/app.py --name greetings-app-prod -p 7004'
             }
         }
         stage('tests-on-prod') {
             steps {
                 echo 'Testing on PROD has started..'
-                powershell 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
-                powershell 'npm install'
+                bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
+                bat 'npm install'
                 //npm run greetings greetings_prod
+                bat 'pm2 delete greetings-app-prod ; set "errorlevel=0"'
             }
         }
     }
