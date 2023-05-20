@@ -13,27 +13,22 @@ pipeline {
         stage('deploy-to-dev') {
             steps {
                 powershell 'pm2 start python-greetings/app.py --name greetings-app-dev -p 7001'
-                powershell 'pm2 delete greetings-app-dev "&" set "errorlevel=0"'
+                powershell 'pm2 delete greetings-app-dev ; set "errorlevel=0"'
                 echo 'Deployment to DEV has started..'
             }
         }
         stage('tests-on-dev') {
             steps {
                 powershell 'git clone https://github.com/mtararujs/course-js-api-framework.git'
-
-                powershell 'copy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\package.json C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\ '
-
+                powershell 'cd C:\ProgramData\Jenkins\.jenkins\workspace\pipelineldtest\course-js-api-framework'
                 powershell 'npm install'
-
                 echo 'Testing on DEV has started..'
             }
         }
         stage('deploy-to-staging') {
             steps {
                 powershell 'pm2 start python-greetings/app.py --name greetings-app-staging -p 7002'
-
-                powershell 'pm2 delete all'
-
+                powershell 'pm2 delete greetings-app-staging ; set "errorlevel=0"'
                 echo 'Deployment to STG has started..'
             }
         }
@@ -41,9 +36,7 @@ pipeline {
             steps {
 
                 powershell 'copy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\package.json C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\ '
-
                 powershell 'npm install'
-
                 echo 'Testing on STG has started..'
             }
         }
@@ -51,9 +44,7 @@ pipeline {
             steps {
 
                 powershell 'pm2 start python-greetings/app.py --name greetings-app-preprod -p 7003'
-
-                powershell 'pm2 delete all'
-
+                powershell 'pm2 delete greetings-app-preprod ; set "errorlevel=0"'
                 echo 'Deployment to PRD has started..'
             }
         }
@@ -61,9 +52,7 @@ pipeline {
             steps {
 
                 powershell 'copy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\package.json C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\ '
-
                 powershell 'npm install'
-
                 echo 'Testing on PRD has started..'
             }
         }
@@ -71,9 +60,7 @@ pipeline {
             steps {
 
                 powershell 'pm2 start python-greetings/app.py --name greetings-app-prod -p 7004'
-
-                powershell 'pm2 delete all'
-
+                powershell 'pm2 delete greetings-app-prod ; set "errorlevel=0"'
                 echo 'Deployment to PROD has started..'
             }
         }
@@ -81,9 +68,7 @@ pipeline {
             steps {
 
                 powershell 'copy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\package.json C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\ '
-
                 powershell 'npm install'
-
                 echo 'Testing on PROD has started..'
             }
         }
