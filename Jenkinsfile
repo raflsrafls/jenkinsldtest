@@ -5,24 +5,24 @@ pipeline {
         stage('install-pip-deps') {
             steps {
                 echo 'Installing PIP has started ...'
-                powershell 'git clone https://github.com/mtararujs/python-greetings'
-                powershell 'ls python-greetings'
-                powershell 'pip install -r python-greetings\\requirements.txt'
+                bat 'git clone https://github.com/mtararujs/python-greetings'
+                bat 'ls python-greetings'
+                bat 'pip install -r python-greetings\\requirements.txt'
             }
         }
         stage('deploy-to-dev') {
             steps {
                 echo 'Deployment to DEV has started..'
-                powershell 'pm2 start python-greetings/app.py --name greetings-app-dev -p 7001'
-                powershell 'pm2 delete greetings-app-dev ; set "errorlevel=0"'
+                bat 'pm2 start python-greetings/app.py --name greetings-app-dev -p 7001'
+                bat 'pm2 delete greetings-app-dev ; set "errorlevel=0"'
             }
         }
         stage('tests-on-dev') {
             steps {
                 echo 'Testing on DEV has started..'
-                powershell 'git clone https://github.com/mtararujs/course-js-api-framework.git'
-                powershell 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
-                powershell 'npm install'
+                bat 'git clone https://github.com/mtararujs/course-js-api-framework.git'
+                bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
+                bat 'npm install'
                 //npm run greetings greetings_dev
             }
         }
