@@ -37,7 +37,7 @@ pipeline {
                 bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
                 //bat 'npm install'
                 //npm run greetings greetings_staging
-                bat 'pm2 delete greetings-app-staging ; set "errorlevel=0"'
+                bat 'pm2 delete greetings-app-staging && set "errorlevel=0"'
             }
         }
         stage('deploy-to-preprod') {
@@ -52,7 +52,7 @@ pipeline {
                 bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
                 //bat 'npm install'
                 //npm run greetings greetings_preprod
-                bat 'pm2 delete greetings-app-preprod ; set "errorlevel=0"'
+                bat 'pm2 delete greetings-app-preprod && set "errorlevel=0"'
             }
         }
         stage('deploy-to-prod') {
@@ -67,7 +67,7 @@ pipeline {
                 bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
                 //bat 'npm install'
                 //npm run greetings greetings_prod
-                bat 'pm2 delete greetings-app-prod ; set "errorlevel=0"'
+                bat 'pm2 delete greetings-app-prod && set "errorlevel=0"'
             }
         }
     }
