@@ -23,7 +23,7 @@ pipeline {
                 bat 'git clone https://github.com/mtararujs/course-js-api-framework.git'
                 bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
                 bat 'npm install'
-                //npm run greetings greetings_dev
+                bat 'npm run greetings greetings_dev'
             }
         }
         stage('deploy-to-staging') {
