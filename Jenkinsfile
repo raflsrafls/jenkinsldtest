@@ -6,7 +6,6 @@ pipeline {
             steps {
                 echo 'Installing PIP has started ...'
                 bat 'git clone https://github.com/mtararujs/python-greetings'
-                bat 'ls python-greetings'
                 bat 'pip install -r python-greetings\\requirements.txt'
             }
         }
