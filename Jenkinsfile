@@ -20,7 +20,7 @@ pipeline {
         stage('tests-on-dev') {
             steps {
                 powershell 'git clone https://github.com/mtararujs/course-js-api-framework.git'
-                powershell 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework'
+                powershell 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
                 powershell 'npm install'
                 //npm run greetings greetings_dev
                 echo 'Testing on DEV has started..'
@@ -35,9 +35,9 @@ pipeline {
         }
         stage('tests-on-staging') {
             steps {
-
-                powershell 'copy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\package.json C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\ '
+                powershell 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
                 powershell 'npm install'
+                //npm run greetings greetings_staging
                 echo 'Testing on STG has started..'
             }
         }
@@ -51,9 +51,9 @@ pipeline {
         }
         stage('tests-on-preprod') {
             steps {
-
-                powershell 'copy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\package.json C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\ '
+                powershell 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
                 powershell 'npm install'
+                //npm run greetings greetings_preprod
                 echo 'Testing on PRD has started..'
             }
         }
@@ -68,8 +68,9 @@ pipeline {
         stage('tests-on-prod') {
             steps {
 
-                powershell 'copy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\package.json C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\ '
+                powershell 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
                 powershell 'npm install'
+                //npm run greetings greetings_prod
                 echo 'Testing on PROD has started..'
             }
         }
