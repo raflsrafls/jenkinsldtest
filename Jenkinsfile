@@ -20,7 +20,7 @@ pipeline {
         stage('tests-on-dev') {
             steps {
                 powershell 'git clone https://github.com/mtararujs/course-js-api-framework.git'
-                powershell 'cd C:\ProgramData\Jenkins\.jenkins\workspace\pipelineldtest\course-js-api-framework'
+                powershell 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework'
                 powershell 'npm install'
                 echo 'Testing on DEV has started..'
             }
