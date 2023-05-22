@@ -22,7 +22,7 @@ pipeline {
                 echo 'Testing on DEV has started..'
                 bat 'pm2 start python-greetings/app.py --name greetings-app-dev -p 7001'
                 bat 'git clone https://github.com/mtararujs/course-js-api-framework.git'
-               // bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
+                bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\*'
                 bat 'npm install'
                 bat 'npm run greetings greetings_dev'
                 bat 'pm2 delete greetings-app-dev && set "errorlevel=0"'
