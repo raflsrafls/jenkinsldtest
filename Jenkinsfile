@@ -12,7 +12,7 @@ pipeline {
         stage('deploy-to-dev') {
             steps {
                 echo 'Deployment to DEV has started..'
-                bat 'git clone https://github.com/mtararujs/python-greetings'
+                //bat 'git clone https://github.com/mtararujs/python-greetings'
                 bat 'pm2 start python-greetings/app.py --name greetings-app-dev -p 7001'
                 bat 'pm2 delete greetings-app-dev && set "errorlevel=0"'
             }
@@ -31,7 +31,7 @@ pipeline {
         stage('deploy-to-staging') {
             steps {
                 echo 'Deployment to STG has started..'
-                bat 'git clone https://github.com/mtararujs/python-greetings'
+                //bat 'git clone https://github.com/mtararujs/python-greetings'
                 bat 'pm2 start python-greetings/app.py --name greetings-app-staging -p 7002'
                 bat 'pm2 delete greetings-app-staging && set "errorlevel=0"'
             }
@@ -40,7 +40,7 @@ pipeline {
             steps {
                 echo 'Testing on STG has started..'
                 bat 'pm2 start python-greetings/app.py --name greetings-app-staging -p 7002'
-                bat 'git clone https://github.com/mtararujs/course-js-api-framework.git'
+                //bat 'git clone https://github.com/mtararujs/course-js-api-framework.git'
                 bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
                 bat 'npm install'
                 bat 'npm run greetings greetings_staging'
@@ -50,7 +50,7 @@ pipeline {
         stage('deploy-to-preprod') {
             steps {
                 echo 'Deployment to PRD has started..'
-                bat 'git clone https://github.com/mtararujs/python-greetings'
+                //bat 'git clone https://github.com/mtararujs/python-greetings'
                 bat 'pm2 start python-greetings/app.py --name greetings-app-preprod -p 7003'
                 bat 'pm2 delete greetings-app-preprod && set "errorlevel=0"'
             }
@@ -59,7 +59,7 @@ pipeline {
             steps {
                 echo 'Testing on PRD has started..'
                 bat 'pm2 start python-greetings/app.py --name greetings-app-preprod -p 7003'
-                bat 'git clone https://github.com/mtararujs/course-js-api-framework.git'
+                //bat 'git clone https://github.com/mtararujs/course-js-api-framework.git'
                 bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
                 bat 'npm install'
                 bat 'npm run greetings greetings_preprod'
@@ -69,7 +69,7 @@ pipeline {
         stage('deploy-to-prod') {
             steps {
                 echo 'Deployment to PROD has started..'
-                bat 'git clone https://github.com/mtararujs/python-greetings'
+                //bat 'git clone https://github.com/mtararujs/python-greetings'
                 bat 'pm2 start python-greetings/app.py --name greetings-app-prod -p 7004'
                 bat 'pm2 delete greetings-app-prod && set "errorlevel=0"'
             }
@@ -78,7 +78,7 @@ pipeline {
             steps {
                 echo 'Testing on PROD has started..'
                 bat 'pm2 start python-greetings/app.py --name greetings-app-prod -p 7004'
-                bat 'git clone https://github.com/mtararujs/course-js-api-framework.git'
+                //bat 'git clone https://github.com/mtararujs/course-js-api-framework.git'
                 bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipelineldtest\\course-js-api-framework\\'
                 bat 'npm install'
                 bat 'npm run greetings greetings_prod'
